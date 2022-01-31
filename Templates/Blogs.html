@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blogs</title>
+</head>
+<body>
+        <form action="{% url 'blog' %}" method="POST">{% csrf_token %}
+          Sarlavha : <input type="text" name="title" required='required'>
+           Sana: <input type="date" name="date" required='required'>
+           Mavzu : <input type="text" name="theme" required='required'>
+           Muallif : <input type="text" name="writer" required='required'>
+            <button type="submit">Submit</button>
+        </form>
+        <div>
+                {% for maqola in mq %}
+                <h1>Sarlavha:{{ maqola.sarlavha }}</h1>
+                <h1>Sana:{{ maqola.sana }}</h1>
+                <h1>Mavzu:{{ maqola.mavzu }}</h1>
+                <h1>Muallif:{{ maqola.muallif }}</h1>
+                {% endfor %}
+            </div>
+</body>
+</html>
